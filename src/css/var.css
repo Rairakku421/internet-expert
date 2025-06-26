@@ -1,0 +1,14 @@
+:root {
+    --bg-color: #E6EAF1;
+    --darkgrey-bg: #181A1F;
+    --nowhite-bg: #F1F4F8;
+    --grey-text: #3A3A3A;
+    -lightgray-text: #989898;
+    --red-button-def: #FF0033;
+    --red-button-hover: #C30228;
+    --red-button-active: #FF1947;
+    --white-button-active: #FFFFFF;
+    --grey-button-def: #363A40;
+    --grey-button-hover: #2D3136;
+    --grey-button-active: #4A5058;
+}
