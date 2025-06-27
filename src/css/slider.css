@@ -1,0 +1,57 @@
+.slider {
+    max-width: 1392px;
+    margin: 80px auto;
+    padding: 0 24px;
+}
+
+.slider__container {
+    /* Можно добавить дополнительные стили, если нужно */
+}
+
+.my-swiper.auto-rotate-swiper {
+    position: relative; /* Для позиционирования псевдоэлементов */
+    max-width: 1392px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.swiper-wrapper {
+    transition-timing-function: linear !important; /* Равномерное движение */
+    padding: 20px 0;
+}
+
+.swiper-slide {
+    width: auto !important;
+    margin-right: 30px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.swiper-slide img {
+    max-height: 80px; /* Настрой высоту изображений */
+    width: auto; /* Сохраняем пропорции */
+    object-fit: contain; /* Убедись, что изображения не искажаются */
+}
+
+.my-swiper.auto-rotate-swiper::before,
+.my-swiper.auto-rotate-swiper::after {
+    content: ''; /* Обязательно для псевдоэлементов */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px; /* Увеличил ширину дымки для заметности */
+    z-index: 10; /* Поверх слайдов */
+    pointer-events: none; /* Дымка не мешает взаимодействию */
+}
+
+.my-swiper.auto-rotate-swiper::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(	230, 234 ,241, 1), rgba(230, 234 ,241, 0));
+}
+
+.my-swiper.auto-rotate-swiper::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(230, 234 ,241, 1), rgba(230, 234 ,241, 0));
+}
