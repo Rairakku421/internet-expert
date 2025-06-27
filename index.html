@@ -150,38 +150,39 @@
   </section>
 
   <footer class="footer" id="form">
-    <div>
-      <div>
-        <p>Создание сайтов</p>
-        <div>
-          <a href="tel:+74951527212">+7 (495) 152-72-12</a>
-          <a href="mailto:info@internet-expert.ru">info@internet-expert.ru</a>
+    <div class="footer__container">
+      <div class="footer__container-information">
+        <p class="information__title">Создание сайтов</p>
+        <div class="information__container">
+          <a class="information__container-phone" href="tel:+74951527212">+7 (495) 152-72-12</a>
+          <a class="information__container-text" href="mailto:info@internet-expert.ru">info@internet-expert.ru</a>
         </div>
-        <div>
-          <p>ООО "Интернет-Эксперт"</p>
-          <p>г. Сергиев Посад, ул. Пионерская 6, 3 этаж, офис 324</p>
+        <div class="information__container">
+          <p class="information__container-text">ООО "Интернет-Эксперт"</p>
+          <p class="information__container-text">г. Сергиев Посад, ул. Пионерская 6, 3 этаж, офис 324</p>
         </div>
-        <div>
-          <p>Реквизиты компании</p>
-          <p>Политика в области обработки персональных данных</p>
+        <div class="information__container">
+          <p class="information__container-text">Реквизиты компании</p>
+          <p class="information__container-text">Политика в области обработки персональных данных</p>
         </div>
-        <a href="src/assets/files/iex_presentation.pdf">Наша презентация</a>
+        <a class="information__container-button" href="src/assets/files/iex_presentation.pdf" target="_blank">Наша презентация</a>
       </div>
-      <div>
-        <form>
-          <label for="name"></label>
-          <input type="text" id="name" name="name" placeholder="Ваше имя" required>
-          <label for="phone"></label>
-          <input type="tel" id="phone" name="phone" placeholder="Номер телефона" required>
-          <label for="email"></label>
-          <input type="email" id="email" name="email" placeholder="Email" required>
-          <label for="text"></label>
-          <input type="text" id="text" name="text" placeholder="Сообщение" required>
-          <p>Нажимая на кнопку “Отправить”, я даю <a href="src/assets/files/consent_to_the_processing_of_personal_data.pdf">согласие</a> на обработку персональных данных. Подробнее об обработке в <a href="src/assets/files/policy_on_processing_of_personal_data.pdf">Политике</a></p>
-          <div>
-            <label><input type="checkbox" required>Я даю <a href="src/assets/files/consent_to_the_processing_of_personal_data.pdf">согласие</a> на направление рекламных и информационных рассылок.</label>
+      <div class="footer__container-form">
+        <form class="form">
+          <label class="form__label" for="name"></label>
+          <input class="form__input" type="text" id="name" name="name" placeholder="Ваше имя" required>
+          <label class="form__label" for="phone"></label>
+          <input class="form__input" type="tel" id="phone" name="phone" placeholder="Номер телефона" required>
+          <label class="form__label" for="email"></label>
+          <input class="form__input" type="email" id="email" name="email" placeholder="Email" required>
+          <label class="form__label" for="text"></label>
+          <textarea class="form__input form__input-message" id="text" name="text" placeholder="Сообщение" required></textarea>
+          <p class="form__text">Нажимая на кнопку “Отправить”, я даю <a class="form__text-decorate" href="src/assets/files/consent_to_the_processing_of_personal_data.pdf" target="_blank">согласие</a> на обработку персональных данных. Подробнее об обработке в <a class="form__text-decorate" href="src/assets/files/policy_on_processing_of_personal_data.pdf" target="_blank">Политике.</a></p>
+          <div class="form__checkbox-container">
+            <label class="checkbox__container-label"><input class="checkbox-container-input" type="checkbox" required></label>
+            <p class="form__text">Я даю <a class="form__text-decorate" href="src/assets/files/consent_to_the_processing_of_personal_data.pdf" target="_blank">согласие</a>на направление рекламных и информационных рассылок.</p>
           </div>
-          <button type="submit">Отправить</button>
+          <button class="form__button-submit" type="submit">Отправить</button>
         </form>
       </div>
     </div>
