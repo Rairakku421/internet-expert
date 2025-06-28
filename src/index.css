@@ -5,6 +5,7 @@
 @import "./css/can.css";
 @import "./css/slider.css";
 @import "./css/footer.css";
+@import "./css/snackbar.css";
 
 * {
     margin: 0;

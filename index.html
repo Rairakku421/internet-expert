@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="src/index.js" type="module" defer></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <script src="https://unpkg.com/inputmask@5.0.8/dist/inputmask.min.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <title>Интернет Эксперт</title>
   </head>
@@ -22,7 +23,18 @@
         <a href="#clients" class="list__link">Наши клиенты</a>
         <a href="#form" class="list__link">Контакты</a>
       </div>
-      <a href="#form" class="header__container-button">Написать нам</a>
+      <div class="menu">
+        <input type="checkbox" id="burger-checkbox" class="burger-checkbox">
+        <label for="burger-checkbox" class="burger">
+          <span class="burger__section"></span>
+        </label>
+        <nav class="menu__panel">
+          <a href="#about" class="menu__link">О компании</a>
+          <a href="#can"   class="menu__link">Услуги</a>
+          <a href="#clients" class="menu__link">Наши клиенты</a>
+          <a href="#form"  class="menu__link">Контакты</a>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -154,16 +166,16 @@
       <div class="footer__container-information">
         <p class="information__title">Создание сайтов</p>
         <div class="information__container">
-          <a class="information__container-phone" href="tel:+74951527212">+7 (495) 152-72-12</a>
-          <a class="information__container-text" href="mailto:info@internet-expert.ru">info@internet-expert.ru</a>
+          <a class="information__container-phone form__text-decorate no__underline" href="tel:+74951527212">+7 (495) 152-72-12</a>
+          <a class="information__container-text form__text-decorate no__underline" href="mailto:info@internet-expert.ru">info@internet-expert.ru</a>
         </div>
         <div class="information__container">
           <p class="information__container-text">ООО "Интернет-Эксперт"</p>
           <p class="information__container-text">г. Сергиев Посад, ул. Пионерская 6, 3 этаж, офис 324</p>
         </div>
         <div class="information__container">
-          <p class="information__container-text">Реквизиты компании</p>
-          <p class="information__container-text">Политика в области обработки персональных данных</p>
+          <p class="information__container-text"><a class="form__text-decorate no__underline" href="src/assets/files/req.pdf">Реквизиты компании</a></p>
+          <p class="information__container-text"><a class="form__text-decorate no__underline" href="src/assets/files/policy_on_processing_of_personal_data.pdf" target="_blank">Политика в области обработки персональных данных</a></p>
         </div>
         <a class="information__container-button" href="src/assets/files/iex_presentation.pdf" target="_blank">Наша презентация</a>
       </div>
@@ -180,12 +192,16 @@
           <p class="form__text">Нажимая на кнопку “Отправить”, я даю <a class="form__text-decorate" href="src/assets/files/consent_to_the_processing_of_personal_data.pdf" target="_blank">согласие</a> на обработку персональных данных. Подробнее об обработке в <a class="form__text-decorate" href="src/assets/files/policy_on_processing_of_personal_data.pdf" target="_blank">Политике.</a></p>
           <div class="form__checkbox-container">
             <label class="checkbox__container-label"><input class="checkbox-container-input" type="checkbox" required></label>
-            <p class="form__text">Я даю <a class="form__text-decorate" href="src/assets/files/consent_to_the_processing_of_personal_data.pdf" target="_blank">согласие</a>на направление рекламных и информационных рассылок.</p>
+            <p class="form__text">Я даю <a class="form__text-decorate" href="src/assets/files/consent_to_the_processing_of_personal_data.pdf" target="_blank">согласие</a> на направление рекламных и информационных рассылок.</p>
           </div>
           <button class="form__button-submit" type="submit">Отправить</button>
         </form>
       </div>
     </div>
   </footer>
+  <div class="snackbar" id="snackbar">
+    <span>Мы получили ваше сообщение, скоро ответим!</span>
+    <button class="snackbar__close">✖</button>
+  </div>
   </body>
 </html>

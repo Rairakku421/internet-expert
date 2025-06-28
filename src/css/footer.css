@@ -31,6 +31,7 @@
     flex-direction: column;
     color: var(--lightgray-text);
     font-size: 20px;
+    font-weight: bold;
 }
 
 .information__container-phone {
@@ -147,6 +148,22 @@
     margin-right: 12px;
 }
 
+.form__text-decorate {
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+
+.form__text-decorate:hover {
+    color: var(--red-button-def);
+    text-decoration: none;
+}
+
+.no__underline {
+    text-decoration: none;
+}
+
 .form__button-submit {
     font-size: 16px;
     padding: 18px 32px;
@@ -156,6 +173,7 @@
     width: fit-content;
     color: var(--red-button-def);
     font-weight: bold;
+    cursor: pointer;
 }
 
 .form__button-submit:hover{
