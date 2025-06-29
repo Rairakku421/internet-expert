@@ -1,14 +1,14 @@
 @use 'var' as *;
-/* Переменные для цветов, чтобы сделать их легко изменяемыми */
-$grey-text: var(--grey-text); /* Предполагается, что эти переменные CSS определены где-то глобально */
+$grey-text: var(--grey-text);
 $darkgrey-bg: var(--darkgrey-bg);
 $white-button-active: var(--white-button-active);
-/* Миксин для flexbox, если вы часто используете одни и те же свойства */
+
+
 @mixin flex-center($direction: row) {
   display: flex;
   flex-direction: $direction;
   justify-content: center;
-  align-items: center; /* Добавлено, так как часто используется с justify-content: center */
+  align-items: center;
 }
 
 .about {
@@ -19,7 +19,6 @@ $white-button-active: var(--white-button-active);
   padding: 0 24px;
 
   &__container {
-    // Вложенность для дочерних элементов
     &-text {
       .text {
         &__title {
@@ -27,12 +26,30 @@ $white-button-active: var(--white-button-active);
           font-weight: bold;
           color: $grey-text;
           margin: 0 0 48px;
+
+          @media (max-width: 940px) {
+            font-size: 32px;
+          }
+
+          @media (max-width: 580px) {
+            font-size: 24px;
+            margin: 0 0 24px;
+          }
+
+          @media (max-width: 490px) {
+            font-size: 16px;
+          }
         }
 
         &__information {
           font-size: 20px;
           color: $grey-text;
           margin: 0 0 48px;
+
+          @media (max-width: 580px) {
+            font-size: 16px;
+            margin: 0 0 24px;
+          }
         }
 
         &__bold {
@@ -48,6 +65,7 @@ $white-button-active: var(--white-button-active);
     }
   }
 }
+
 
 .card {
   display: flex;
@@ -76,8 +94,6 @@ $white-button-active: var(--white-button-active);
   }
 }
 
-// --- Медиа-запросы ---
-
 @media (max-width: 1410px) {
   .about__container-card {
     flex-wrap: wrap;
@@ -98,36 +114,12 @@ $white-button-active: var(--white-button-active);
   }
 }
 
-@media (max-width: 940px) {
-  .text__title {
-    font-size: 32px;
-  }
-}
-
 @media (max-width: 580px) {
   .about {
     margin: 40px auto;
   }
 
-  .text {
-    &__title {
-      font-size: 24px;
-      margin: 0 0 24px;
-    }
-
-    &__information {
-      font-size: 16px;
-      margin: 0 0 24px;
-    }
-  }
-
   .card {
     flex-basis: 100%;
-  }
-}
-
-@media (max-width: 490px) {
-  .text__title {
-    font-size: 16px;
   }
 }

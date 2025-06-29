@@ -1,5 +1,5 @@
-/* Переменные для общих значений */
 @use 'var' as *;
+
 $max-width-container: 1392px;
 $padding-container: 24px;
 $margin-section: 80px auto;
@@ -7,18 +7,14 @@ $swiper-slide-margin-right: 30px;
 $swiper-image-max-height: 80px;
 $swiper-fade-width: 80px;
 
-
-// Предполагаем, что цвет фона, который вы используете для градиента, это ваш --bg-color
-$bg-color: rgb(230, 234, 241); // Или var(--bg-color); если он у вас уже есть как CSS переменная
+$bg-color: rgb(230, 234, 241);
 
 .slider {
   max-width: $max-width-container;
   margin: $margin-section;
   padding: 0 $padding-container;
 
-  &__container {
-    // Можно добавить дополнительные стили, если нужно
-  }
+  &__container {}
 }
 
 .my-swiper.auto-rotate-swiper {
@@ -27,7 +23,6 @@ $bg-color: rgb(230, 234, 241); // Или var(--bg-color); если он у ва�
   margin: 0 auto;
   overflow: hidden;
 
-  // Псевдоэлементы для эффекта дымки
   &::before,
   &::after {
     content: '';
@@ -51,7 +46,7 @@ $bg-color: rgb(230, 234, 241); // Или var(--bg-color); если он у ва�
 }
 
 .swiper-wrapper {
-  transition-timing-function: linear !important; // Равномерное движение
+  transition-timing-function: linear !important;
   padding: 20px 0;
 }
 
@@ -61,11 +56,11 @@ $bg-color: rgb(230, 234, 241); // Или var(--bg-color); если он у ва�
   display: flex;
   align-items: center;
   justify-content: center;
-  user-select: none; // Запрет выделения текста
+  user-select: none;
 
   img {
-    max-height: $swiper-image-max-height; // Настрой высоту изображений
-    width: auto; // Сохраняем пропорции
-    object-fit: contain; // Убедись, что изображения не искажаются
+    max-height: $swiper-image-max-height;
+    width: auto;
+    object-fit: contain;
   }
 }

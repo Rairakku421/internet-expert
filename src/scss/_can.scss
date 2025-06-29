@@ -1,16 +1,13 @@
-/* Variables for colors. These assume your CSS variables
-   (e.g., --grey-text) are defined globally, perhaps in a :root { ... } block.
-   The SCSS variables here are for convenience within your .scss files. */
 @use 'var' as *;
 $grey-text: var(--grey-text);
 $white-button-active: var(--white-button-active);
 
-/* Mixin for common flexbox centering if you use it frequently */
+
 @mixin flex-center($direction: row) {
   display: flex;
   flex-direction: $direction;
   justify-content: center;
-  align-items: center; // Often used with justify-content: center
+  align-items: center;
 }
 
 .can {
@@ -21,7 +18,6 @@ $white-button-active: var(--white-button-active);
   padding: 0 24px;
 
   &__container {
-    // No specific styles for .can__container itself, but its children are nested
     &-skills {
       display: flex;
       flex-wrap: wrap;
@@ -43,7 +39,6 @@ $white-button-active: var(--white-button-active);
   max-width: 680px;
   box-sizing: border-box;
 
-  // Applying styles to the last child within .skills
   &:last-child {
     min-width: 100%;
   }
@@ -96,8 +91,6 @@ $white-button-active: var(--white-button-active);
   }
 }
 
-// --- Media Queries ---
-
 @media (max-width: 1440px) {
   .skills {
     max-width: none;
@@ -113,7 +106,7 @@ $white-button-active: var(--white-button-active);
 
 @media (max-width: 580px) {
   .skill {
-    height: 74px; // Move up for better grouping
+    height: 74px;
 
     &__container-title {
       font-size: 24px;
@@ -131,7 +124,7 @@ $white-button-active: var(--white-button-active);
   }
 
   .skill {
-    height: 56px; // Move up for better grouping
+    height: 56px;
 
     &__container-title {
       font-size: 20px;

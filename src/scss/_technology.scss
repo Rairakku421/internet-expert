@@ -1,5 +1,5 @@
-/* Variables for common values and colors */
 @use 'var' as *;
+
 $border-radius-base: 10px;
 $section-margin-desktop: 80px 24px;
 $section-margin-mobile: 40px 12px;
@@ -11,12 +11,11 @@ $logo-margin-bottom-desktop: 60px;
 $slider-margin-bottom-mobile: 48px;
 
 
-// Assuming these CSS variables are defined globally
 $white-button-active: var(--white-button-active);
-$bg-color-transparent: transparent; // If you want to explicitly define transparent
+$bg-color-transparent: transparent;
 
 .technology {
-  background-color: $white-button-active; // Using SCSS variable
+  background-color: $white-button-active;
   border-radius: $border-radius-base;
   margin: $section-margin-desktop;
 
@@ -36,39 +35,34 @@ $bg-color-transparent: transparent; // If you want to explicitly define transpar
     }
 
     &-slider {
-      display: none; // Hidden by default on desktop
+      display: none;
     }
   }
 }
 
-.logo {
-  // No specific styles here based on your provided CSS
-}
+.logo {}
 
-// --- Media Queries ---
 @media (max-width: 960px) {
   .technology {
     &__container {
       &-logo {
-        display: none; // Hide desktop logo grid
+        display: none;
       }
 
       &-slider {
-        display: flex; // Show slider for smaller screens
+        display: flex;
         gap: $logo-gap;
         overflow-x: auto;
-        -webkit-overflow-scrolling: touch; // For smooth scrolling on iOS
-        white-space: nowrap; // Keep items in one line
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
         margin: 0 0 $slider-margin-bottom-mobile;
-
-        // Hide scrollbar across browsers
-        scrollbar-width: none; // Firefox
-        &::-webkit-scrollbar { // Webkit (Chrome, Safari)
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
           display: none;
         }
 
         img.logo {
-          flex-shrink: 0; // Prevent images from shrinking
+          flex-shrink: 0;
         }
       }
     }
@@ -77,8 +71,8 @@ $bg-color-transparent: transparent; // If you want to explicitly define transpar
 
 @media (max-width: 560px) {
   .technology {
-    background-color: $bg-color-transparent; // Make background transparent
-    border-radius: $border-radius-base; // Keep radius, but background is transparent
-    margin: $section-margin-mobile; // Adjust margin for very small screens
+    background-color: $bg-color-transparent;
+    border-radius: $border-radius-base;
+    margin: $section-margin-mobile;
   }
 }

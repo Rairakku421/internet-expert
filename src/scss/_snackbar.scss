@@ -1,5 +1,5 @@
-/* Variables for Snackbar colors and common values */
 @use 'var' as *;
+
 $snackbar-bg-color: #333;
 $snackbar-text-color: #fff;
 $snackbar-padding: 14px 20px;
@@ -27,19 +27,17 @@ $snackbar-transition-duration: 0.3s;
   gap: $snackbar-gap;
   z-index: $snackbar-z-index;
   opacity: 0;
-  pointer-events: none; // Element is non-interactive when hidden
-  transform: translateY($snackbar-hidden-offset); // Hidden off-screen initially
+  pointer-events: none;
+  transform: translateY($snackbar-hidden-offset);
   transition: opacity $snackbar-transition-duration ease,
-  transform $snackbar-transition-duration ease; // Streamlined transition
+  transform $snackbar-transition-duration ease;
 
-  // Styles when the snackbar is visible
   &.show {
     opacity: 1;
-    pointer-events: auto; // Element becomes interactive when shown
-    transform: translateY(0); // Slide into view
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
-  // Close button specific styles
   &__close {
     background: none;
     border: none;

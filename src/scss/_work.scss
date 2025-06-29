@@ -1,5 +1,5 @@
 @use 'var' as *;
-// Переменные для общих значений
+
 $section-max-width: 1392px;
 $section-margin: 80px auto;
 $section-padding: 0 24px;
@@ -13,9 +13,6 @@ $card-image-size: 40px;
 $card-text-font-size: 18px;
 $card-gap: 20px;
 
-// Использование SCSS-переменных, которые ссылаются на CSS-переменные из _var.scss
-$white-button-active: var(--white-button-active);
-
 .work {
   max-width: $section-max-width;
   display: flex;
@@ -24,13 +21,12 @@ $white-button-active: var(--white-button-active);
   padding: $section-padding;
 
   &__container {
-    // Если нужны стили для .work__container, добавьте их здесь
     &-about {
       display: flex;
       flex-wrap: wrap;
       gap: $container-gap-desktop;
 
-      .about__card { // Вложенность для карточек внутри контейнера "about"
+      .about__card {
         width: $card-width-desktop;
         height: $card-height-desktop;
         background-color: $white-button-active;
@@ -56,37 +52,37 @@ $white-button-active: var(--white-button-active);
   }
 }
 
-// --- Медиа-запросы ---
+
 
 @media (max-width: 1540px) {
   .work__container-about {
-    gap: $container-gap-tablet; // Уменьшение зазора между карточками
+    gap: $container-gap-tablet;
   }
 }
 
 @media (max-width: 1440px) {
   .work__container-about {
-    flex-direction: column; // Карточки выстраиваются в столбец
-    align-items: center; // Центрирование карточек
-    width: 100%; // Контейнер занимает всю ширину
-    box-sizing: border-box; // Убедиться, что box-sizing учтен
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
 
     .about__card {
-      width: 100%; // Карточки занимают 100% ширины
-      max-width: none; // Отменяем ограничение по максимальной ширине
-      box-sizing: border-box; // Убедиться, что box-sizing учтен
+      width: 100%;
+      max-width: none;
+      box-sizing: border-box;
     }
   }
 }
 
 @media (max-width: 560px) {
   .about__card-text {
-    font-size: 16px; // Уменьшение размера шрифта
+    font-size: 16px;
   }
 }
 
 @media (max-width: 460px) {
   .about__card-text {
-    font-size: 14px; // Еще меньший размер шрифта
+    font-size: 14px;
   }
 }

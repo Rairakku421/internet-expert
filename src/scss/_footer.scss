@@ -1,16 +1,5 @@
-/* Переменные для цветов. Эти переменные SCSS ссылаются на ваши глобальные
-   CSS-переменные (например, --darkgrey-bg), которые должны быть определены
-   в вашем корневом файле CSS или в блоке :root { ... }. */
 @use 'var' as *;
-$darkgrey-bg: var(--darkgrey-bg);
-$white-button-active: var(--white-button-active);
-$lightgray-text: var(--lightgray-text);
-$grey-button-def: var(--grey-button-def);
-$grey-button-hover: var(--grey-button-hover);
-$grey-button-active: var(--grey-button-active);
-$red-button-def: var(--red-button-def);
 
-/* Миксин для общих настроек flexbox */
 @mixin flex-layout($direction: row, $justify: center, $align: center, $gap: 0) {
   display: flex;
   flex-direction: $direction;
@@ -19,6 +8,8 @@ $red-button-def: var(--red-button-def);
   gap: $gap;
 }
 
+
+
 .footer {
   margin: 12px 12px;
   background-color: $darkgrey-bg;
@@ -26,33 +17,48 @@ $red-button-def: var(--red-button-def);
   padding: 60px 0;
 
   &__container {
-    @include flex-layout(row, center, center, 240px); // Использование миксина
-    max-width: 1392px; // Добавлено, если это ограничение применимо к контейнеру
-    margin: 0 auto; // Центрирование контейнера
+    @include flex-layout(row, center, center, 240px);
+    max-width: 1392px;
+    margin: 0 auto;
 
     &-information {
       width: 520px;
-      @include flex-layout(column, initial, initial, 32px); // initial для значений по умолчанию
+      @include flex-layout(column, initial, initial, 32px);
 
       .information {
         &__title {
           font-size: 60px;
           font-weight: bold;
           color: $white-button-active;
+
+          @media (max-width: 580px) {
+            font-size: 48px;
+            text-align: center;
+          }
+
+          @media (max-width: 480px) {
+            font-size: 24px;
+          }
+
         }
 
         &__container {
-          @include flex-layout(column, initial, initial, 0); // Без gap по умолчанию
+          @include flex-layout(column, initial, initial, 0);
           color: $lightgray-text;
           font-size: 20px;
           font-weight: bold;
 
           &-phone {
             font-size: 35px;
+            @media (max-width: 480px) {
+              font-size: 18px;
+            }
           }
 
           &-text {
-            // No specific styles here
+            @media (max-width: 480px) {
+              font-size: 18px;
+            }
           }
 
           &-button {
@@ -63,7 +69,7 @@ $red-button-def: var(--red-button-def);
             color: $white-button-active;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.2s ease; // Плавный переход
+            transition: background-color 0.2s ease;
 
             &:hover {
               background-color: $grey-button-hover;
@@ -71,6 +77,12 @@ $red-button-def: var(--red-button-def);
 
             &:active {
               background-color: $grey-button-active;
+            }
+
+            @media (max-width: 580px) {
+              box-sizing: border-box;
+              width: 100%;
+              text-align: center;
             }
           }
         }
@@ -83,12 +95,11 @@ $red-button-def: var(--red-button-def);
   }
 }
 
-.form {
-  @include flex-layout(column, initial, initial, 0); // Flex column для формы
 
-  &__label {
-    // No specific styles here
-  }
+.form {
+  @include flex-layout(column, initial, initial, 0);
+
+  &__label {}
 
   &__input {
     max-width: 520px;
@@ -100,7 +111,7 @@ $red-button-def: var(--red-button-def);
     margin-bottom: 32px;
     caret-color: $red-button-def;
     color: $white-button-active;
-    transition: border-color 0.2s ease; // Плавный переход для border
+    transition: border-color 0.2s ease;
 
     &::placeholder {
       font-size: 16px;
@@ -115,7 +126,7 @@ $red-button-def: var(--red-button-def);
       height: 180px;
       border: $grey-button-active 4px solid;
       border-radius: 5px;
-      resize: vertical; // Разрешаем изменять размер по вертикали
+      resize: vertical;
 
       &:focus {
         border: $red-button-def 4px solid;
@@ -132,7 +143,7 @@ $red-button-def: var(--red-button-def);
     &-decorate {
       text-decoration: underline;
       cursor: pointer;
-      transition: color 0.2s ease, text-decoration 0.2s ease; // Плавный переход
+      transition: color 0.2s ease, text-decoration 0.2s ease;
 
       &:hover {
         color: $red-button-def;
@@ -142,20 +153,20 @@ $red-button-def: var(--red-button-def);
   }
 
   &__checkbox-container {
-    display: flex; // Просто flex, так как он уже используется в миксине
+    display: flex;
 
     .checkbox__container-label {
       margin-right: 12px;
     }
 
     .checkbox-container-input {
-      appearance: none; // Удаляем стандартный вид
+      appearance: none;
       width: 20px;
       height: 20px;
       position: relative;
       cursor: pointer;
       background-color: transparent;
-      border: 2px solid #363A40; // Используйте переменную, если этот цвет постоянный
+      border: 2px solid #363A40;
       border-radius: 4px;
       transition: border-color 0.2s ease;
 
@@ -164,7 +175,7 @@ $red-button-def: var(--red-button-def);
       }
 
       &:checked {
-        border-color: #FF0033; // Используйте переменную
+        border-color: #FF0033;
         &::after {
           content: '';
           position: absolute;
@@ -172,7 +183,7 @@ $red-button-def: var(--red-button-def);
           left: 50%;
           width: 6px;
           height: 12px;
-          border: solid #FF0033; // Используйте переменную
+          border: solid #FF0033;
           border-width: 0 2px 2px 0;
           transform: translate(-50%, -60%) rotate(45deg);
         }
@@ -194,19 +205,22 @@ $red-button-def: var(--red-button-def);
     color: $red-button-def;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.2s ease; // Плавный переход
+    transition: background-color 0.2s ease;
 
     &:hover {
       background-color: color-mix(in srgb, $red-button-def 20%, transparent);
     }
 
-    &:active {
-      // Добавьте стили для активного состояния, если нужно
+    &:active {}
+
+    @media (max-width: 580px) {
+      box-sizing: border-box;
+      width: 100%;
+      text-align: center;
     }
   }
 }
 
-// --- Медиа-запросы ---
 
 @media (max-width: 1460px) {
   .footer__container {
@@ -222,9 +236,9 @@ $red-button-def: var(--red-button-def);
 
 @media (max-width: 1200px) {
   .footer__container {
-    flex-direction: column; // Переопределение миксина для этого брейкпоинта
+    flex-direction: column;
     padding: 0 24px;
-    gap: 60px; // Переопределение миксина для этого брейкпоинта
+    gap: 60px;
 
     &-information {
       width: 100%;
@@ -237,43 +251,5 @@ $red-button-def: var(--red-button-def);
 
   .form__input {
     max-width: none;
-  }
-}
-
-@media (max-width: 580px) {
-  .information {
-    &__container-button {
-      box-sizing: border-box;
-      width: 100%;
-      text-align: center;
-    }
-
-    &__title {
-      font-size: 48px;
-      text-align: center;
-    }
-  }
-
-  .form__button-submit {
-    box-sizing: border-box;
-    width: 100%;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .information {
-    &__title {
-      font-size: 24px;
-      text-align: center;
-    }
-
-    &__container-phone {
-      font-size: 18px;
-    }
-
-    &__container-text {
-      font-size: 18px;
-    }
   }
 }
