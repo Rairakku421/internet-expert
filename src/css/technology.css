@@ -1,0 +1,88 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+.technology {
+    background-color: var(--white-button-active);
+    border-radius: 10px;
+    margin: 80px 24px;
+}
+
+.technology__container {
+    max-width: 1392px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 60px 24px 0;
+
+}
+
+.technology__container-logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 24px 24px;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0 0 60px;
+}
+
+.technology__container-slider {
+    display: none;
+}
+
+.logo {}
+
+@media (max-width: 960px) {
+    .technology__container-logo {
+        display: none;
+    }
+
+    .technology__container-slider {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 24px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+        margin: 0 0 48px;
+
+        scrollbar-width: none;
+    }
+
+    .technology__container-slider::-webkit-scrollbar {
+        display: none;
+    }
+
+    .technology__container-slider img.logo {
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .technology {
+        background-color: transparent;
+        border-radius: 10px;
+        margin: 40px 12px;
+    }
+}

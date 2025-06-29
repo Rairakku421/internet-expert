@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 @import "./var.css";
 
 .banner {
@@ -24,6 +31,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
     pointer-events: none;
 }
@@ -33,9 +41,15 @@
     left: 80px;
     bottom: 80px;
     width: 840px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     color: var(--white-button-active);
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -45,6 +59,8 @@
 }
 
 .banner__button {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     font-size: 24px;
     background-color: var(--red-button-def);
@@ -115,13 +131,21 @@
         bottom: 12px;
         left: 0;
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
         padding: 20px;
     }
 
     .banner__button {
+        -webkit-box-sizing: border-box;
         box-sizing: border-box;
         width: calc(100% - 24px);
         text-align: center;

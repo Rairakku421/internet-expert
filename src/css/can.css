@@ -1,6 +1,18 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 .can {
     max-width: 1392px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     margin: 80px auto;
     padding: 0 24px;
@@ -16,7 +28,10 @@
 }
 
 .can__container-skills {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     gap: 32px;
 }
@@ -25,6 +40,7 @@
     border-radius: 10px;
     border: var(--white-button-active) 2px solid;
     max-width: 680px;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -48,6 +64,7 @@
     right: 0;
     width: 676px;
     height: auto;
+    -o-object-fit: cover;
     object-fit: cover;
     pointer-events: none;
 }
@@ -56,10 +73,18 @@
     position: absolute;
     top: 50%;
     left: 36px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     color: var(--grey-text);
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -68,7 +93,10 @@
 }
 
 .skill__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     padding: 24px 32px;
 }

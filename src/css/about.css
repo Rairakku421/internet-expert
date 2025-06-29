@@ -1,6 +1,18 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 .about {
     max-width: 1392px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     margin: 80px auto;
     padding: 0 24px;
@@ -28,23 +40,36 @@
 }
 
 .about__container-card {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     gap: 24px;
 }
 
 .card {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     background-color: var(--darkgrey-bg);
     color: var(--white-button-active);
     border-radius: 10px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 448px;
     flex: 1 1 448px;
     max-width: 605px;
     height: auto;
 }
 
 .card--fullwidth {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 100%;
     flex: 1 1 100%;
     max-width: none;
 }
@@ -62,10 +87,13 @@
 
 @media (max-width: 1410px) {
     .about__container-card {
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     }
 
     .card:last-child{
+        max-width: -webkit-fit-content;
+        max-width: -moz-fit-content;
         max-width: fit-content;
     }
 }
@@ -102,6 +130,7 @@
     }
 
     .card {
+        -ms-flex-preferred-size: 100%;
         flex-basis: 100%;
     }
 }

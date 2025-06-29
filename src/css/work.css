@@ -1,0 +1,100 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+.work {
+    max-width: 1392px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 80px auto;
+    padding: 0 24px;
+}
+
+.work__container {}
+
+.work__container-about {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.about__card {
+    width: 448px;
+    height: 112px;
+    background-color: var(--white-button-active);
+    border-radius: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 36px 32px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.about__card-image {
+    width: 40px;
+    height: 40px;
+}
+
+.about__card-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+@media (max-width: 1540px) {
+    .work__container-about {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .work__container-about {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .about__card {
+        width: 100%;
+        max-width: none;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 560px) {
+    .about__card-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 460px) {
+    .about__card-text {
+        font-size: 14px;
+    }
+}
