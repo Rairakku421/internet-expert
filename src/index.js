@@ -1,4 +1,4 @@
-import './index.css'
+import './scss/index.scss';
 import './js/animateVideo.js'
 import './js/slider.js'
 import './js/formMask.js'

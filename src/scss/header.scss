@@ -1,0 +1,243 @@
+/* Importing global variables from a separate file.
+   Ensure that your _var.scss (or var.scss) file defines these:
+   $bg-color, $grey-text, $red-button-def
+*/
+@use 'var' as *; // Import without .css or .scss extension, Sass will find it
+
+// Define SCSS variables mapping to your CSS custom properties
+$bg-color: var(--bg-color);
+$grey-text: var(--grey-text);
+$red-button-def: var(--red-button-def);
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 22px 0;
+  background-color: $bg-color; // Using SCSS variable
+  z-index: 100;
+
+  a {
+    // Universal unset for links within header (or consider a global reset)
+    all: unset;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    &-logo {
+      position: absolute;
+      left: 70px;
+      width: 187px;
+      height: 40px;
+      cursor: pointer;
+    }
+
+    &-list {
+      display: flex;
+      gap: 40px;
+      font-size: 16px;
+      font-weight: bold;
+      color: $grey-text; // Using SCSS variable
+      line-height: 1;
+      align-items: center;
+      cursor: pointer;
+
+      .list__link {
+        padding: 10px;
+        color: currentColor; // Inherits color from parent .header__container-list
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: $red-button-def; // Using SCSS variable
+        }
+      }
+    }
+  }
+}
+
+.menu {
+  display: none; // Hidden by default, shown on smaller screens
+  position: absolute;
+  right: 70px;
+
+  .burger-checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none; // Make it non-interactive directly
+  }
+
+  .burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: $grey-text; // Using SCSS variable
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+
+    &__section {
+      position: relative;
+      width: 20px;
+      height: 3px;
+      background: white;
+      border-radius: 10px;
+      transition: background 0.3s;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 3px;
+        background: white;
+        border-radius: 10px;
+        transition: 0.3s;
+        left: 0;
+      }
+
+      &::before {
+        top: -7px;
+      }
+
+      &::after {
+        top: 7px;
+      }
+    }
+  }
+
+  /* 🎬 Animation for burger icon */
+  // Using the adjacent sibling combinator (~) to select .burger and .menu__panel
+  // when .burger-checkbox is checked.
+  .burger-checkbox:checked {
+    + .burger {
+      .burger__section {
+        background: transparent;
+
+        &::before {
+          top: 0;
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          top: 0;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+
+    ~ .menu__panel {
+      transform: translateY(0); // Show the menu
+    }
+
+    // Delaying the opacity transition for menu links
+    ~ .menu__panel .menu__link {
+      opacity: 1;
+      transition-delay: 0.2s;
+    }
+  }
+
+  .menu__panel {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: $bg-color; // Using SCSS variable
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px;
+    transform: translateY(-100%); // Hidden by default
+    transition: transform 0.4s ease;
+    z-index: -90; // Behind the header
+
+    .menu__link {
+      font-size: 20px;
+      font-weight: bold;
+      color: $grey-text; // Using SCSS variable
+      align-items: center; // Though this is on a flex item, it's usually on container
+      cursor: pointer;
+      transition: color 0.2s ease, opacity 0.1s ease; // Combined transitions
+      padding: 12px 50px; // Simplified padding
+      opacity: 0; // Hidden by default, appears with delay
+
+      &:hover {
+        color: $red-button-def; // Using SCSS variable
+      }
+    }
+  }
+}
+
+// --- Media Queries ---
+@media (max-width: 1110px) {
+  .header {
+    height: 36px; // Adjust header height for smaller screens
+  }
+
+  .header__container-list {
+    display: none; // Hide desktop navigation
+  }
+
+  .menu {
+    display: block; // Show burger menu
+  }
+}
+
+@media (max-width: 960px) {
+  // This rule was for hiding a specific link, kept as is.
+  // If you always hide .header__container-list at 1110px, this rule becomes redundant.
+  // Consider if this media query is still necessary after the 1110px rule.
+  .header__container-list .list__link:nth-last-child(2) {
+    display: none;
+  }
+}
+
+// The following media query (max-width: 800px) is redundant
+// because .header__container-list is already set to display: none at 1110px.
+// You might want to remove it or re-evaluate your breakpoints.
+/*
+@media (max-width: 800px) {
+    .header__container-list {
+        display: none;
+    }
+}
+*/
+
+@media (max-width: 640px) {
+  .header__container-logo {
+    left: 40px;
+  }
+
+  .menu {
+    right: 40px;
+  }
+}
+
+@media (max-width: 560px) {
+  .header__container-logo {
+    left: 30px;
+  }
+
+  .menu {
+    right: 30px;
+  }
+}
+
+@media (max-width: 420px) {
+  .header__container-logo {
+    left: 12px;
+  }
+
+  .menu {
+    right: 12px;
+  }
+
+  .menu__link {
+    font-size: 16px;
+  }
+}

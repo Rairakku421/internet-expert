@@ -1,0 +1,29 @@
+@use 'var' as *;
+
+// Import individual component SCSS files
+// Assuming your converted files are now in the same directory as this main.scss
+// or in a subfolder like 'components/'. Adjust paths as needed.
+@use "header";
+@use "video"; // Changed from video.css to banner.scss based on your previous conversions
+@use "about";
+@use "work";
+@use "can";
+@use "technology";
+@use "slider";
+@use "footer";
+@use "snackbar";
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-color); // Using your CSS custom property
+}

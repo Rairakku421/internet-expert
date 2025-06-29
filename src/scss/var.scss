@@ -1,0 +1,33 @@
+// SCSS variables for your project's color palette
+// These mirror your CSS custom properties for use directly in SCSS files.
+
+$bg-color: #E6EAF1;
+$darkgrey-bg: #181A1F;
+$nowhite-bg: #F1F4F8;
+$grey-text: #3A3A3A;
+$lightgray-text: #989898;
+$red-button-def: #FF0033;
+$red-button-hover: #C30228;
+$red-button-active: #FF1947;
+$white-button-active: #FFFFFF;
+$grey-button-def: #363A40;
+$grey-button-hover: #2D3136;
+$grey-button-active: #4A5058;
+
+// You can optionally also keep your CSS custom properties here
+// if you need them for JavaScript or other specific use cases,
+// but for pure SCSS usage, the above SCSS variables are sufficient.
+:root {
+  --bg-color: #{$bg-color}; // Using interpolation to output SCSS variable value as CSS custom property
+  --darkgrey-bg: #{$darkgrey-bg};
+  --nowhite-bg: #{$nowhite-bg};
+  --grey-text: #{$grey-text};
+  --lightgray-text: #{$lightgray-text};
+  --red-button-def: #{$red-button-def};
+  --red-button-hover: #{$red-button-hover};
+  --red-button-active: #{$red-button-active};
+  --white-button-active: #{$white-button-active};
+  --grey-button-def: #{$grey-button-def};
+  --grey-button-hover: #{$grey-button-hover};
+  --grey-button-active: #{$grey-button-active};
+}

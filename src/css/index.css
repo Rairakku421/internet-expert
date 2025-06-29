@@ -1,0 +1,24 @@
+@import "var.css";
+@import "header.css";
+@import "video.css";
+@import "about.css";
+@import "work.css";
+@import "can.css";
+@import "technology.css";
+@import "slider.css";
+@import "footer.css";
+@import "snackbar.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+}

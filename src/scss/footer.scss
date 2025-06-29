@@ -1,0 +1,279 @@
+/* Переменные для цветов. Эти переменные SCSS ссылаются на ваши глобальные
+   CSS-переменные (например, --darkgrey-bg), которые должны быть определены
+   в вашем корневом файле CSS или в блоке :root { ... }. */
+@use 'var' as *;
+$darkgrey-bg: var(--darkgrey-bg);
+$white-button-active: var(--white-button-active);
+$lightgray-text: var(--lightgray-text);
+$grey-button-def: var(--grey-button-def);
+$grey-button-hover: var(--grey-button-hover);
+$grey-button-active: var(--grey-button-active);
+$red-button-def: var(--red-button-def);
+
+/* Миксин для общих настроек flexbox */
+@mixin flex-layout($direction: row, $justify: center, $align: center, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+.footer {
+  margin: 12px 12px;
+  background-color: $darkgrey-bg;
+  border-radius: 10px;
+  padding: 60px 0;
+
+  &__container {
+    @include flex-layout(row, center, center, 240px); // Использование миксина
+    max-width: 1392px; // Добавлено, если это ограничение применимо к контейнеру
+    margin: 0 auto; // Центрирование контейнера
+
+    &-information {
+      width: 520px;
+      @include flex-layout(column, initial, initial, 32px); // initial для значений по умолчанию
+
+      .information {
+        &__title {
+          font-size: 60px;
+          font-weight: bold;
+          color: $white-button-active;
+        }
+
+        &__container {
+          @include flex-layout(column, initial, initial, 0); // Без gap по умолчанию
+          color: $lightgray-text;
+          font-size: 20px;
+          font-weight: bold;
+
+          &-phone {
+            font-size: 35px;
+          }
+
+          &-text {
+            // No specific styles here
+          }
+
+          &-button {
+            width: fit-content;
+            padding: 20px;
+            background-color: $grey-button-def;
+            font-size: 16px;
+            color: $white-button-active;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease; // Плавный переход
+
+            &:hover {
+              background-color: $grey-button-hover;
+            }
+
+            &:active {
+              background-color: $grey-button-active;
+            }
+          }
+        }
+      }
+    }
+
+    &-form {
+      width: 520px;
+    }
+  }
+}
+
+.form {
+  @include flex-layout(column, initial, initial, 0); // Flex column для формы
+
+  &__label {
+    // No specific styles here
+  }
+
+  &__input {
+    max-width: 520px;
+    padding: 23px 21px;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 4px solid $grey-button-active;
+    margin-bottom: 32px;
+    caret-color: $red-button-def;
+    color: $white-button-active;
+    transition: border-color 0.2s ease; // Плавный переход для border
+
+    &::placeholder {
+      font-size: 16px;
+    }
+
+    &:focus {
+      outline: none;
+      border-bottom: 4px solid $red-button-def;
+    }
+
+    &-message {
+      height: 180px;
+      border: $grey-button-active 4px solid;
+      border-radius: 5px;
+      resize: vertical; // Разрешаем изменять размер по вертикали
+
+      &:focus {
+        border: $red-button-def 4px solid;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: bold;
+    color: $white-button-active;
+    margin-bottom: 32px;
+
+    &-decorate {
+      text-decoration: underline;
+      cursor: pointer;
+      transition: color 0.2s ease, text-decoration 0.2s ease; // Плавный переход
+
+      &:hover {
+        color: $red-button-def;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__checkbox-container {
+    display: flex; // Просто flex, так как он уже используется в миксине
+
+    .checkbox__container-label {
+      margin-right: 12px;
+    }
+
+    .checkbox-container-input {
+      appearance: none; // Удаляем стандартный вид
+      width: 20px;
+      height: 20px;
+      position: relative;
+      cursor: pointer;
+      background-color: transparent;
+      border: 2px solid #363A40; // Используйте переменную, если этот цвет постоянный
+      border-radius: 4px;
+      transition: border-color 0.2s ease;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:checked {
+        border-color: #FF0033; // Используйте переменную
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 6px;
+          height: 12px;
+          border: solid #FF0033; // Используйте переменную
+          border-width: 0 2px 2px 0;
+          transform: translate(-50%, -60%) rotate(45deg);
+        }
+      }
+    }
+  }
+
+  .no__underline {
+    text-decoration: none;
+  }
+
+  &__button-submit {
+    font-size: 16px;
+    padding: 18px 32px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: $red-button-def 2px solid;
+    width: fit-content;
+    color: $red-button-def;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease; // Плавный переход
+
+    &:hover {
+      background-color: color-mix(in srgb, $red-button-def 20%, transparent);
+    }
+
+    &:active {
+      // Добавьте стили для активного состояния, если нужно
+    }
+  }
+}
+
+// --- Медиа-запросы ---
+
+@media (max-width: 1460px) {
+  .footer__container {
+    gap: 160px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .footer__container {
+    gap: 80px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .footer__container {
+    flex-direction: column; // Переопределение миксина для этого брейкпоинта
+    padding: 0 24px;
+    gap: 60px; // Переопределение миксина для этого брейкпоинта
+
+    &-information {
+      width: 100%;
+    }
+
+    &-form {
+      width: 100%;
+    }
+  }
+
+  .form__input {
+    max-width: none;
+  }
+}
+
+@media (max-width: 580px) {
+  .information {
+    &__container-button {
+      box-sizing: border-box;
+      width: 100%;
+      text-align: center;
+    }
+
+    &__title {
+      font-size: 48px;
+      text-align: center;
+    }
+  }
+
+  .form__button-submit {
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .information {
+    &__title {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    &__container-phone {
+      font-size: 18px;
+    }
+
+    &__container-text {
+      font-size: 18px;
+    }
+  }
+}

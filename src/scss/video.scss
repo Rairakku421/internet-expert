@@ -1,0 +1,164 @@
+@use 'var' as *;
+
+// Переменные для общих значений и цветов баннера
+$banner-padding-top: 80px;
+$banner-padding-x: 12px;
+$container-max-width: 1920px;
+$video-wrapper-height: 768px;
+$video-border-radius: 20px;
+$content-left: 80px;
+$content-bottom: 80px;
+$content-width: 840px;
+$text-font-size: 64px;
+$text-margin-bottom: 24px;
+$button-font-size: 24px;
+$button-padding: 16px 36px;
+$button-border-radius: 5px;
+
+// Использование SCSS-переменных, которые ссылаются на CSS-переменные из _var.scss
+$white-button-active: var(--white-button-active);
+$red-button-def: var(--red-button-def);
+$red-button-hover: var(--red-button-hover);
+$red-button-active: var(--red-button-active);
+
+.banner {
+  padding: $banner-padding-top $banner-padding-x 0;
+
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &__video-wrapper {
+    position: relative;
+    width: 100%;
+    height: $video-wrapper-height;
+    overflow: hidden;
+    border-radius: $video-border-radius;
+  }
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // Автопрефиксер добавит -o-
+    pointer-events: none; // Видео не мешает взаимодействию
+  }
+
+  &__content {
+    position: absolute;
+    left: $content-left;
+    bottom: $content-bottom;
+    width: $content-width;
+    display: flex;
+    flex-direction: column;
+    color: $white-button-active;
+    box-sizing: border-box;
+
+    .banner__text { // Полный селектор для ясности
+      font-size: $text-font-size;
+      margin-bottom: $text-margin-bottom;
+    }
+
+    .banner__button { // Полный селектор для ясности
+      width: fit-content; // Автопрефиксер добавит -webkit-, -moz-
+      font-size: $button-font-size;
+      background-color: $red-button-def;
+      padding: $button-padding;
+      border-radius: $button-border-radius;
+      cursor: pointer;
+      transition: background-color 0.2s ease; // Плавный переход
+
+      &:hover {
+        background-color: $red-button-hover;
+      }
+
+      &:active {
+        background-color: $red-button-active;
+      }
+    }
+  }
+}
+
+// --- Медиа-запросы ---
+
+@media (max-width: 1440px) {
+  .banner {
+    &__video-wrapper {
+      height: 650px;
+    }
+
+    &__content {
+      left: 60px;
+      bottom: 60px;
+      width: 620px;
+    }
+
+    &__text {
+      font-size: 48px;
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .banner {
+    padding: $banner-padding-top 0 0; // Изменение padding для мобильных
+
+    &__video-wrapper {
+      height: 470px;
+      border-radius: 0; // Убрать скругление углов
+    }
+
+    &__content {
+      left: 40px;
+      bottom: 40px;
+      width: 420px;
+    }
+
+    &__text {
+      font-size: 32px;
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .banner__content {
+    left: 30px;
+    bottom: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .banner {
+    &__content {
+      position: absolute; // Сохраняется
+      bottom: 12px;
+      left: 0;
+      width: 100%;
+      display: flex; // Сохраняется
+      flex-direction: column; // Сохраняется
+      align-items: center; // Центрирование контента
+      padding: 20px; // Добавить внутренние отступы
+      box-sizing: border-box; // Убедиться, что padding не увеличивает ширину
+    }
+
+    &__button {
+      box-sizing: border-box;
+      width: calc(100% - 24px); // Учитываем 12px отступа по краям (2 * 12px)
+      text-align: center;
+    }
+
+    &__text { // Перемещение сюда, чтобы переопределить только для этого брейкпоинта
+      font-size: 24px;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .banner__button {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,50 @@
+/* Variables for Snackbar colors and common values */
+@use 'var' as *;
+$snackbar-bg-color: #333;
+$snackbar-text-color: #fff;
+$snackbar-padding: 14px 20px;
+$snackbar-border-radius: 8px;
+$snackbar-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+$snackbar-gap: 12px;
+$snackbar-bottom: 20px;
+$snackbar-right: 20px;
+$snackbar-z-index: 200;
+$snackbar-hidden-offset: 100px;
+$snackbar-transition-duration: 0.3s;
+
+
+.snackbar {
+  position: fixed;
+  bottom: $snackbar-bottom;
+  right: $snackbar-right;
+  background-color: $snackbar-bg-color;
+  color: $snackbar-text-color;
+  padding: $snackbar-padding;
+  border-radius: $snackbar-border-radius;
+  box-shadow: $snackbar-shadow;
+  display: flex;
+  align-items: center;
+  gap: $snackbar-gap;
+  z-index: $snackbar-z-index;
+  opacity: 0;
+  pointer-events: none; // Element is non-interactive when hidden
+  transform: translateY($snackbar-hidden-offset); // Hidden off-screen initially
+  transition: opacity $snackbar-transition-duration ease,
+  transform $snackbar-transition-duration ease; // Streamlined transition
+
+  // Styles when the snackbar is visible
+  &.show {
+    opacity: 1;
+    pointer-events: auto; // Element becomes interactive when shown
+    transform: translateY(0); // Slide into view
+  }
+
+  // Close button specific styles
+  &__close {
+    background: none;
+    border: none;
+    color: $snackbar-text-color;
+    font-size: 18px;
+    cursor: pointer;
+  }
+}
